@@ -1,0 +1,6 @@
+.idea/
+.out/
+*.iml
+out/
+konrad26_ejb/target/
+konrad26_web/target/
