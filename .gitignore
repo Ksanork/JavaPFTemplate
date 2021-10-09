@@ -4,3 +4,5 @@
 out/
 konrad26_ejb/target/
 konrad26_web/target/
+templ_ejb/target/
+templ_web/target/

@@ -11,19 +11,19 @@
 
 <h:body>
     <h:form id="testForm">
-        <p:outputPanel id="firstPanel" rendered="#{mainPageController.showFirstPanel}">
-            <h:outputText value="To jest pierwszy panel" />
+        <p:card id="firstPanel" rendered="#{mainPageController.showFirstPanel}">
+            <h:outputText value="This is first card" />
             <br />
             <h:outputText value="#{mainPageController.intRandom}" />
-        </p:outputPanel>
+        </p:card>
 
-        <p:outputPanel id="secondPanel" rendered="#{mainPageController.showSecondPanel}">
-            <h:outputText value="To jest drugi panel" />
+        <p:card id="secondPanel" rendered="#{mainPageController.showSecondPanel}">
+            <h:outputText value="This is second card" />
             <br />
             <h:outputText value="#{mainPageController.doubleRandom}" />
-        </p:outputPanel>
+        </p:card>
 
-        <p:commandButton value="Rand"
+        <p:commandButton value="Randomize and update only first panel"
                          update="firstPanel"
                          action="#{mainPageController.randForAll()}" />
     </h:form>
