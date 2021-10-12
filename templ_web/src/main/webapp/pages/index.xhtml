@@ -8,24 +8,35 @@
 <h:head>
 
 </h:head>
-
 <h:body>
     <h:form id="testForm">
-        <p:card id="firstPanel" rendered="#{mainPageController.showFirstPanel}">
-            <h:outputText value="This is first card" />
-            <br />
-            <h:outputText value="#{mainPageController.intRandom}" />
+        <p:card id="firstPanel" rendered="#{mainPageController.showFirstPanel}" style="display: inline-block">
+            <h:outputText value="This is first card of random double" /> <br />
+            <h:outputText value="#{mainPageController.doubleRandom}" /> <br />
+
+            <p:commandButton value="Randomize"
+                             update="firstPanel"
+                             action="#{mainPageController.randDouble}" />
         </p:card>
 
-        <p:card id="secondPanel" rendered="#{mainPageController.showSecondPanel}">
-            <h:outputText value="This is second card" />
-            <br />
-            <h:outputText value="#{mainPageController.doubleRandom}" />
+        <p:card id="secondPanel" rendered="#{mainPageController.showSecondPanel}" style="display: inline-block">
+            <h:outputText value="This is second card of random int" /> <br />
+            <h:outputText value="#{mainPageController.intRandom}" /> <br />
+
+            <p:commandButton value="Randomize"
+                             update="secondPanel"
+                             action="#{mainPageController.randInt}" />
         </p:card>
 
-        <p:commandButton value="Randomize and update only first panel"
-                         update="firstPanel"
-                         action="#{mainPageController.randForAll()}" />
+        <p:dataTable id="table" value="#{mainPageController.doubleList}" var="position">
+            <p:column>
+                <h:outputText value="#{position}" />
+            </p:column>
+        </p:dataTable>
+
+        <p:commandButton value="Randomize all"
+                         update="firstPanel secondPanel table"
+                         action="#{mainPageController.randForAll}" />
     </h:form>
 </h:body>
 </html>

@@ -8,6 +8,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 
 @Named
 @ViewScoped
@@ -22,6 +23,8 @@ public class MainPageController implements Serializable {
     private int intRandom;
     private double doubleRandom;
 
+    private List<Double> doubleList;
+
     public MainPageController() {
     }
 
@@ -31,8 +34,21 @@ public class MainPageController implements Serializable {
     }
 
     public void randForAll() {
+        randDouble();
+        randInt();
+        updateDoubleList();
+    }
+
+    public void randInt() {
         intRandom = randomFacade.randomInt();
+    }
+
+    public void randDouble() {
         doubleRandom = randomFacade.randomDouble();
+    }
+
+    public void updateDoubleList() {
+        doubleList = randomFacade.randomDoubleList(10);
     }
 
     public boolean isShowFirstPanel() {
@@ -65,5 +81,13 @@ public class MainPageController implements Serializable {
 
     public void setDoubleRandom(double doubleRandom) {
         this.doubleRandom = doubleRandom;
+    }
+
+    public List<Double> getDoubleList() {
+        return doubleList;
+    }
+
+    public void setDoubleList(List<Double> doubleList) {
+        this.doubleList = doubleList;
     }
 }
